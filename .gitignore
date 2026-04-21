@@ -1,0 +1,11 @@
+.mypy_cache
+__pycache__
+.vscode
+*.code-workspace
+ssv2ng.py
+License.rtf
+*.ui
+Ad.png
+build
+dist
+.venv

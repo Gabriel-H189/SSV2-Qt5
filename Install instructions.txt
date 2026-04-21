@@ -1,0 +1,6 @@
+Seagull Scaring V2 install instructions
+
+1. Extract the `media` directory, requirements.txt, seagull.png and main.pyw into a folder you can easily access.
+2. Run `install.bat` and type y. It's that easy.
+3. Run `python main.pyw`.
+4. Have fun!
