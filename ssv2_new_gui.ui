@@ -188,6 +188,22 @@
     <string>about</string>
    </property>
   </widget>
+  <widget class="QLabel" name="gull_image">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>0</y>
+     <width>41</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>seagull.png</pixmap>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

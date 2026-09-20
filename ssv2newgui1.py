@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'SSV2 new gui.ui'
+# Form implementation generated from reading ui file '.\ssv2_new_gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -58,6 +58,11 @@ class Ui_Form(object):
         self.about_button = QtWidgets.QPushButton(Form)
         self.about_button.setGeometry(QtCore.QRect(320, 300, 51, 21))
         self.about_button.setObjectName("about_button")
+        self.gull_image = QtWidgets.QLabel(Form)
+        self.gull_image.setGeometry(QtCore.QRect(190, 0, 41, 35))
+        self.gull_image.setText("")
+        self.gull_image.setPixmap(QtGui.QPixmap(".\\seagull.png"))
+        self.gull_image.setObjectName("gull_image")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
