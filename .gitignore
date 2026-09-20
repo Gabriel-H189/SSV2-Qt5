@@ -4,7 +4,6 @@ __pycache__
 *.code-workspace
 ssv2ng.py
 License.rtf
-*.ui
 Ad.png
 build
 dist
