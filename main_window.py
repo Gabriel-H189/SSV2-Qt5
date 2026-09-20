@@ -6,8 +6,9 @@ from random import randint
 from threading import Thread
 from time import sleep
 
-from playsound import playsound
-from PyQt5.QtWidgets import QMainWindow  # pylint: disable=no-name-in-module
+from playsound import playsound  # type: ignore
+from PyQt5.QtWidgets import QMainWindow, QLabel  # pylint: disable=no-name-in-module
+from PyQt5.QtGui import QPixmap
 from pyvolume import custom  # type: ignore
 
 from ssv2newgui1 import Ui_Form
@@ -38,6 +39,8 @@ class MainWindow(QMainWindow, Ui_Form):
         self.setWindowTitle("Seagull Scaring V2")
         self.scare_button.clicked.connect(self.scare_thread)  # type: ignore
 
+        self.label = QLabel(self)
+
         for item in seagull_values:
             self.sounds.addItem(item)  # type: ignore
 
@@ -46,6 +49,10 @@ class MainWindow(QMainWindow, Ui_Form):
         self.max_time_entry.setText(parser[config[0]]["max_time"])  # type: ignore
         self.volume_slider.setValue(int(parser[config[0]]["default_volume"]))  # type: ignore
         self.volume_slider.valueChanged.connect(self.set_volume)  # type: ignore
+
+        self.pixmap = QPixmap("seagull.png")
+        self.label.setPixmap(self.pixmap)
+        self.label.resize(self.pixmap.width(), self.pixmap.height())
 
         self.sounds.setCurrentIndex(0)  # type: ignore
 
