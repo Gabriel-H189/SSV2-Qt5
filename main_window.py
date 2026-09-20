@@ -5,6 +5,7 @@ from configparser import ConfigParser
 from random import randint
 from threading import Thread
 from time import sleep
+from datetime import datetime
 
 from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QMainWindow  # pylint: disable=no-name-in-module
@@ -59,6 +60,10 @@ class MainWindow(QMainWindow, Ui_Form):
             pause: int = randint(int(self.min_time_entry.text()), int(self.max_time_entry.text()))  # type: ignore
             sound_name = self.sounds.currentText().replace(" ", "_")
             playsound(rf"media\{sound_name}.wav")  # type: ignore
+
+            # TODO: gui log
+            print(f"A seagull was scared on {datetime.now():%d.%m.%Y %H:%M:%S}")
+
             seagulls_scared += 1
             sleep(pause)
             timer -= pause  # type: ignore
