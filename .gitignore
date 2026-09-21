@@ -3,7 +3,6 @@ __pycache__
 .vscode
 *.code-workspace
 ssv2ng.py
-License.rtf
 Ad.png
 build
 dist
