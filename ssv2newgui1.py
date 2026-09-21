@@ -29,7 +29,7 @@ class Ui_Form(object):
         self.timer_label.setGeometry(QtCore.QRect(30, 80, 111, 16))
         self.timer_label.setObjectName("timer_label")
         self.sounds = QtWidgets.QComboBox(Form)
-        self.sounds.setGeometry(QtCore.QRect(170, 100, 91, 22))
+        self.sounds.setGeometry(QtCore.QRect(170, 100, 121, 22))
         self.sounds.setCurrentText("")
         self.sounds.setObjectName("sounds")
         self.select_sound_label = QtWidgets.QLabel(Form)
