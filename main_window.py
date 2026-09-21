@@ -8,7 +8,7 @@ from time import sleep
 from datetime import datetime
 
 from playsound import playsound  # type: ignore
-from PyQt5.QtWidgets import QMainWindow  # pylint: disable=no-name-in-module
+from PyQt5.QtWidgets import QMainWindow
 from pyvolume import custom  # type: ignore
 
 from ssv2newgui1 import Ui_Form
@@ -55,6 +55,7 @@ class MainWindow(QMainWindow, Ui_Form):
 
         timer: int = int(self.timer_entry.text())  # type: ignore
         seagulls_scared: int = 0
+        logs = []
 
         while timer > 0:
             pause: int = randint(int(self.min_time_entry.text()), int(self.max_time_entry.text()))  # type: ignore
@@ -62,11 +63,19 @@ class MainWindow(QMainWindow, Ui_Form):
             playsound(rf"media\{sound_name}.wav")  # type: ignore
 
             # TODO: gui log
-            print(f"A seagull was scared on {datetime.now():%d.%m.%Y %H:%M:%S}")
+            log = f"A seagull was scared on {datetime.now():%d.%m.%Y %H:%M:%S}\n"
+            print(log.strip("\n"))
+            logs.append(log)
 
             seagulls_scared += 1
             sleep(pause)
             timer -= pause  # type: ignore
+
+        # write log to file
+        with open("ssv2_log.txt", "a") as file:
+            file.writelines(logs)
+
+        print("Done! Log written to ssv2_log.txt")
 
     def scare_thread(self) -> None:
         """Starts seagull scaring thread."""
