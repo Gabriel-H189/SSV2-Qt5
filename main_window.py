@@ -12,6 +12,7 @@ from PyQt5.QtWidgets import QMainWindow
 from pyvolume import custom  # type: ignore
 
 from ssv2newgui1 import Ui_Form
+from about_window import AboutWindow
 
 # Load config file
 parser = ConfigParser()
@@ -38,6 +39,7 @@ class MainWindow(QMainWindow, Ui_Form):
         self.setupUi(self)  # type: ignore
         self.setWindowTitle("Seagull Scaring V2")
         self.scare_button.clicked.connect(self.scare_thread)  # type: ignore
+        self.about_button.clicked.connect(self.about_window)
 
         for item in seagull_values:
             self.sounds.addItem(item)  # type: ignore
@@ -87,3 +89,7 @@ class MainWindow(QMainWindow, Ui_Form):
         """Changes volume according to slider."""
 
         custom(int(self.volume_slider.value()))  # type: ignore
+
+    def about_window(self) -> None:
+        aw = AboutWindow()
+        aw.exec_()
