@@ -8,3 +8,4 @@ Ad.png
 build
 dist
 .venv
+*.spec
