@@ -77,13 +77,17 @@ class Ui_Form(object):
         self.title.setText(_translate("Form", "Seagull Scaring"))
         self.timer_entry.setToolTip(_translate("Form", "Time to run the program for. Recommended: 2700 seconds."))
         self.timer_label.setText(_translate("Form", "Timer in seconds:"))
+        self.sounds.setToolTip(_translate("Form", "A list of all the seagull sounds."))
         self.select_sound_label.setText(_translate("Form", "Select your sound:"))
+        self.min_time_entry.setToolTip(_translate("Form", "Enter the minimum time to wait."))
+        self.max_time_entry.setToolTip(_translate("Form", "Enter the maximum time to wait."))
         self.min_time_label.setText(_translate("Form", "Minimum time:"))
         self.max_time_label.setText(_translate("Form", "Maximum time:"))
         self.scare_button.setToolTip(_translate("Form", "Start scaring the seagulls."))
         self.scare_button.setText(_translate("Form", "scare the gulls"))
         self.volume_slider.setToolTip(_translate("Form", "Change the volume of the seagull sound."))
         self.volume_label.setText(_translate("Form", "Volume"))
+        self.about_button.setToolTip(_translate("Form", "View information about the program."))
         self.about_button.setText(_translate("Form", "about"))
 
 

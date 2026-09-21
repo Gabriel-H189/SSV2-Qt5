@@ -4,6 +4,7 @@ from webbrowser import open_new
 from zipfile import ZipFile
 
 from PyQt5.QtWidgets import QDialog
+from PyQt5.QtGui import QIcon
 from ssv2aboutui import Ui_Dialog
 
 
@@ -12,6 +13,7 @@ class AboutWindow(QDialog, Ui_Dialog):
         QDialog.__init__(self)
         self.setupUi(self)
         self.setWindowTitle("about")
+        self.setWindowIcon(QIcon("seagull.ico"))
         self.gh_button.clicked.connect(self.github)
         self.extract_button.clicked.connect(self.extract_gull_effects)
 

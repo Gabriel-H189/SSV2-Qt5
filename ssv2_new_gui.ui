@@ -67,6 +67,9 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>A list of all the seagull sounds.</string>
+   </property>
    <property name="currentText">
     <string/>
    </property>
@@ -93,6 +96,9 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>Enter the minimum time to wait.</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="max_time_entry">
    <property name="geometry">
@@ -102,6 +108,9 @@
      <width>113</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>Enter the maximum time to wait.</string>
    </property>
   </widget>
   <widget class="QLabel" name="min_time_label">
@@ -189,6 +198,9 @@
      <width>51</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>View information about the program.</string>
    </property>
    <property name="text">
     <string>about</string>

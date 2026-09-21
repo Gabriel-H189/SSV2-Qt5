@@ -9,6 +9,7 @@ from datetime import datetime
 
 from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtGui import QIcon
 from pyvolume import custom  # type: ignore
 
 from ssv2newgui1 import Ui_Form
@@ -38,6 +39,7 @@ class MainWindow(QMainWindow, Ui_Form):
         QMainWindow.__init__(self)
         self.setupUi(self)  # type: ignore
         self.setWindowTitle("Seagull Scaring V2")
+        self.setWindowIcon(QIcon("seagull.ico"))
         self.scare_button.clicked.connect(self.scare_thread)  # type: ignore
         self.about_button.clicked.connect(self.about_window)
 
