@@ -1,4 +1,4 @@
-Seagull Scaring V2 config file docs
+Seagull Scaring V2 (Qt Edition) config file docs
 
 All settings must go in the [main] section.
 

@@ -1,6 +1,6 @@
-# Seagull Scaring V2's requirements.txt
-pyqt5
-pyqt5designer
+# SSV2-Qt5's requirements.txt
+PyQt5
+PyQt5Designer
 playsound==1.2.2
 Pillow
 volume-control==0.9.2

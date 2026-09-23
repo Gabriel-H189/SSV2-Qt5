@@ -1,4 +1,4 @@
-Seagull Scaring V2
+Seagull Scaring V2 (Qt Edition)
 By Gabriel Alonso-Holt.
 
 Recommended settings: 2700 seconds (timer), 60 seconds (min time), 300 seconds (max time).

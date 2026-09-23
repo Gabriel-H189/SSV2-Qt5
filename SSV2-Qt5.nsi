@@ -18,7 +18,7 @@ FunctionEnd
 
 ; Pages
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "license.rtf"
+!insertmacro MUI_PAGE_LICENSE "License.rtf"
 !define MUI_LICENSEPAGE_CHECKBOX
 
 !insertmacro MUI_PAGE_COMPONENTS
@@ -38,7 +38,7 @@ FunctionEnd
 ; Uninstaller pages
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
-!insertmacro MUI_UNPAGE_LICENSE "license.rtf"
+!insertmacro MUI_UNPAGE_LICENSE "License.rtf"
 !insertmacro MUI_UNPAGE_DIRECTORY
 !insertmacro MUI_UNPAGE_INSTFILES
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
