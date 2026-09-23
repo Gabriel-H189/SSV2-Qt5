@@ -3,8 +3,16 @@ Seagull Scaring V2 (Qt Edition) config file docs
 All settings must go in the [main] section.
 
 Settings:
-scaring_time (int): How long to run the program for
-min_time (int): Minimum time to wait
-max_time (int): Maximum time to wait
-default_volume (int): Default volume
-default_sound (str): Seagull sound to use. Valid options: seagull, sad seagull, angry seagull, confused seagull, disgust seagull, robot seagull, alarm seagull.
+scaring_time (int): How long to run the program for. Default: 2700 seconds
+
+min_time (int): Minimum time to wait. Default: 60 seconds
+
+max_time (int): Maximum time to wait. Default: 300 seconds
+
+default_volume (int): Default volume. Default: 20
+
+default_sound (str): Seagull sound to use. Valid options: seagull, sad seagull, angry seagull, confused seagull, disgust seagull, robot seagull, alarm seagull, sea gull, Seagull 2. Default: seagull
+
+autostart (bool): Whether or not to use the autostart feature (not yet implemented). Default: False
+
+autostart_delay (int): Autostart delay timer (not yet implemented). Default: 3 seconds

@@ -19,13 +19,33 @@ Recommended settings: 2700 seconds (timer), 60 seconds (min time), 300 seconds (
 3. Copy a `media.zip` to the program folder, run `main_qt5.py`, click "about" and then click "extract gull effects".
 
 ### If installer does not work:
-1. Run this command to create a virtual environment: `python -m venv .venv`
-2. Activate the environment: `.venv\Scripts\activate.bat`
-3. Install dependencies: `pip install -r requirements.txt`
-4. Run program: `python main_qt5.py`
+1. Run this command to create a virtual environment: 
+```
+python -m venv .venv
+```
+2. Activate the environment: 
+```
+.venv\Scripts\activate.bat
+```
+3. Install dependencies: 
+```
+pip install -r requirements.txt
+```
+4. Run program: 
+```
+python main_qt5.py
+```
 
 ### Compiling from source
 1. Follow the venv creation instructions above.  
-2. Install prerequisites: `pip install pyinstaller`
-3. Compile (this takes a few minutes): `pyinstaller --onefile main_qt5.py -i seagull.ico -n SSV2-Qt5 --add-data="ssv2cfg.ini:." --add-data="seagull.png:." --noconsole`  
-4. Create an installer (makensis must be on your PATH): `makensis SSV2-Qt5.nsi /launch`
+2. Install prerequisites: 
+```
+pip install pyinstaller
+```
+3. Compile (this takes a few minutes): 
+```pyinstaller --onefile main_qt5.py -i seagull.ico -n SSV2-Qt5 --add-data="ssv2cfg.ini:." --add-data="seagull.png:." --noconsole
+```  
+4. Create an installer (makensis must be on your PATH): 
+```
+makensis SSV2-Qt5.nsi /launch
+```

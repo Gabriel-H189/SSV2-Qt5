@@ -66,6 +66,7 @@ Section "Main program"
 	File config_docs.txt
 	File readme.txt
 	File License.rtf
+	File /r Images
 
 	CreateShortcut "$SMPROGRAMS\SeagullScaringV2 (Qt Edition).lnk" "$INSTDIR\SSV2-Qt5.exe"
 
@@ -107,6 +108,8 @@ Section "Uninstall"
 	Delete $INSTDIR\media\robot_seagull.wav
 	Delete "$DESKTOP\SeagullScaringV2 (Qt Edition).lnk"
 	Delete "$SMPROGRAMS\SeagullScaringV2 (Qt Edition).lnk"
+	Delete $INSTDIR\Images\seagull.png
+	RMDir /r $INSTDIR\Images
 	RMDir /r $INSTDIR\media
 
 	Delete $INSTDIR\uninstall.exe

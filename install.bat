@@ -53,7 +53,7 @@ if %choice2% == n goto quit2
 
 :run
 echo Running Seagull Scaring V2 (Qt Edition)...
-python main.pyw
+python main_qt5.py
 
 :quit
 echo Installation cancelled.
