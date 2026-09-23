@@ -43,7 +43,8 @@ python main_qt5.py
 pip install pyinstaller
 ```
 3. Compile (this takes a few minutes): 
-```pyinstaller --onefile main_qt5.py -i seagull.ico -n SSV2-Qt5 --add-data="ssv2cfg.ini:." --add-data="seagull.png:." --noconsole
+```
+pyinstaller --onefile main_qt5.py -i seagull.ico -n SSV2-Qt5 --add-data="ssv2cfg.ini:." --add-data="seagull.png:." --noconsole
 ```  
 4. Create an installer (makensis must be on your PATH): 
 ```
