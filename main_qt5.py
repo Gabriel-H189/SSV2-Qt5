@@ -1,8 +1,8 @@
 # main_qt5.py
 # -*- coding: utf-8 -*-
 
-from sys import argv
-from sys import exit as sys_exit
+# imports
+from sys import argv, exit as sys_exit
 
 from PyQt5.QtWidgets import QApplication
 
