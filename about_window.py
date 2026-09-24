@@ -31,6 +31,8 @@ class AboutWindow(QDialog, Ui_Dialog):
 
     # extracts a zip file containing sound effects to the media dir
     def extract_gull_effects(self: Self) -> None:
+        """extracts the sound effects to a folder"""
+
         with ZipFile(r"media.zip") as zipfile:
             zipfile.extractall(r"media")
 

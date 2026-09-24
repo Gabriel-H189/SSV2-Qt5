@@ -40,6 +40,8 @@ seagull_values: list[str] = [
 
 # main window class containing logic
 class MainWindow(QMainWindow, Ui_Form):
+
+    # init method
     def __init__(self: Self) -> None:
 
         # setup the window
@@ -63,13 +65,16 @@ class MainWindow(QMainWindow, Ui_Form):
 
         self.sounds.setCurrentIndex(0)
 
+    # scare method
     def scare(self: Self) -> None:
         """Starts seagull scaring."""
 
+        # set timer and default values
         timer: int = int(self.timer_entry.text())
         seagulls_scared: int = 0
         logs: list[str] = []
 
+        # start seagull scaring loop
         while timer > 0:
 
             # Play the seagull sound, write a log and wait random number of seconds
@@ -84,6 +89,7 @@ class MainWindow(QMainWindow, Ui_Form):
             print(log.strip("\n"))
             logs.append(log)
 
+            # increment the number of seagulls scared and wait
             seagulls_scared += 1
             sleep(pause)
             timer -= pause
@@ -122,5 +128,6 @@ def main() -> None:
     sys_exit(app.exec_())
 
 
+# Start program
 if __name__ == "__main__":
     main()
