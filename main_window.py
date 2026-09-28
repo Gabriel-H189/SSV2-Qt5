@@ -19,6 +19,7 @@ from pyvolume import custom  # type: ignore
 from ssv2newgui1 import Ui_Form
 from about_window import AboutWindow
 from log_window import LogWindow
+from announcement_ui import AnnounceWindow
 
 # Load config file
 parser: ConfigParser = ConfigParser()
@@ -92,6 +93,7 @@ class MainWindow(QMainWindow, Ui_Form):
         self.setWindowIcon(QIcon(r"seagull.ico"))
         self.scare_button.clicked.connect(self.start_scaring)
         self.about_button.clicked.connect(self.about_window)
+        self.announce_btn.clicked.connect(self.send_a)
         self.scare_thread: QThread | None = None
         self.scare_worker: ScareWorker | None = None
         self.log_window: LogWindow | None = None
@@ -165,6 +167,17 @@ class MainWindow(QMainWindow, Ui_Form):
         aw.show()
 
         aw.exec_()
+
+    def send_a(self: Self) -> None:
+        anw: AnnounceWindow = AnnounceWindow()
+        anw.show()
+
+        def _send_a():
+            msg = anw.message.toPlainText()
+            anw.send_announcement(msg)
+
+        anw.buttons.clicked.connect(_send_a)
+        anw.exec_()
 
 
 def main() -> None:

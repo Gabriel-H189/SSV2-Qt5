@@ -143,7 +143,7 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>270</y>
+     <y>260</y>
      <width>131</width>
      <height>31</height>
     </rect>
@@ -220,6 +220,22 @@
    </property>
    <property name="pixmap">
     <pixmap>seagull.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="announce_btn">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>300</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Start scaring the seagulls.</string>
+   </property>
+   <property name="text">
+    <string>send announcement</string>
    </property>
   </widget>
  </widget>

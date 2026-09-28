@@ -48,7 +48,7 @@ class Ui_Form(object):
         self.max_time_label.setGeometry(QtCore.QRect(30, 180, 101, 16))
         self.max_time_label.setObjectName("max_time_label")
         self.scare_button = QtWidgets.QPushButton(Form)
-        self.scare_button.setGeometry(QtCore.QRect(140, 270, 131, 31))
+        self.scare_button.setGeometry(QtCore.QRect(140, 260, 131, 31))
         self.scare_button.setObjectName("scare_button")
         self.volume_slider = QtWidgets.QSlider(Form)
         self.volume_slider.setGeometry(QtCore.QRect(330, 110, 22, 160))
@@ -67,6 +67,9 @@ class Ui_Form(object):
         self.gull_image.setText("")
         self.gull_image.setPixmap(QtGui.QPixmap(".\\seagull.png"))
         self.gull_image.setObjectName("gull_image")
+        self.announce_btn = QtWidgets.QPushButton(Form)
+        self.announce_btn.setGeometry(QtCore.QRect(130, 300, 141, 31))
+        self.announce_btn.setObjectName("announce_btn")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -89,6 +92,8 @@ class Ui_Form(object):
         self.volume_label.setText(_translate("Form", "Volume"))
         self.about_button.setToolTip(_translate("Form", "View information about the program."))
         self.about_button.setText(_translate("Form", "about"))
+        self.announce_btn.setToolTip(_translate("Form", "Start scaring the seagulls."))
+        self.announce_btn.setText(_translate("Form", "send announcement"))
 
 
 if __name__ == "__main__":
