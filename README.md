@@ -1,7 +1,7 @@
 # Seagull Scaring V2 (PyQt5)
 By Gabriel Alonso-Holt.
 
-This repo ~~is~~ was a scrapped rewrite of Seagull Scaring V2 using PyQt5. It is currently WIP and not as feature-complete as its Tk counterpart.
+This repo ~~is~~ was a scrapped rewrite of Seagull Scaring V2 using PyQt5. It is currently WIP and mostly done, but not as feature-complete as its Tk counterpart.
 
 The days of having me run around scaring seagulls manually are over! With Seagull Scaring, you can just start the program, choose a time to scare seagulls for, and relax as the seagulls fly away when you want.
 
