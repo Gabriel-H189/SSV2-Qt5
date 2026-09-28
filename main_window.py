@@ -6,7 +6,6 @@ from configparser import ConfigParser
 from random import randint
 from sys import argv
 from sys import exit as sys_exit
-from threading import Thread
 from time import sleep
 from datetime import datetime
 from typing import Self
@@ -14,10 +13,12 @@ from typing import Self
 from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
 from pyvolume import custom  # type: ignore
 
 from ssv2newgui1 import Ui_Form
 from about_window import AboutWindow
+from log_window import LogWindow
 
 # Load config file
 parser: ConfigParser = ConfigParser()
@@ -38,6 +39,46 @@ seagull_values: list[str] = [
 ]
 
 
+class ScareWorker(QObject):
+    log_received = pyqtSignal(str)
+    failed = pyqtSignal(str)
+    finished = pyqtSignal()
+
+    def __init__(
+        self: Self, timer: int, min_time: int, max_time: int, sound_name: str
+    ) -> None:
+        super().__init__()
+        self.timer: int = timer
+        self.min_time: int = min_time
+        self.max_time: int = max_time
+        self.sound_name: str = sound_name
+
+    @pyqtSlot()
+    def run(self: Self) -> None:
+        logs: list[str] = []
+        timer: int = self.timer
+
+        try:
+            while timer > 0:
+                pause: int = randint(a=self.min_time, b=self.max_time)
+                playsound(rf"media\{self.sound_name}.wav")
+
+                current_time: datetime = datetime.now()
+                log: str = f"A seagull was scared on {current_time:%d.%m.%Y %H:%M:%S}\n"
+                self.log_received.emit(log.strip("\n"))
+                logs.append(log)
+
+                sleep(pause)
+                timer -= pause
+
+            with open(file=r"ssv2_log.txt", mode="a", encoding="utf-8") as file:
+                file.writelines(logs)
+        except Exception as error:
+            self.failed.emit(str(error))
+        finally:
+            self.finished.emit()
+
+
 # main window class containing logic
 class MainWindow(QMainWindow, Ui_Form):
 
@@ -49,8 +90,11 @@ class MainWindow(QMainWindow, Ui_Form):
         self.setupUi(self)
         self.setWindowTitle("Seagull Scaring V2")
         self.setWindowIcon(QIcon(r"seagull.ico"))
-        self.scare_button.clicked.connect(self.scare_thread)
+        self.scare_button.clicked.connect(self.start_scaring)
         self.about_button.clicked.connect(self.about_window)
+        self.scare_thread: QThread | None = None
+        self.scare_worker: ScareWorker | None = None
+        self.log_window: LogWindow | None = None
 
         # Add all seagull sound effects to the drop down list
         for item in seagull_values:
@@ -65,46 +109,49 @@ class MainWindow(QMainWindow, Ui_Form):
 
         self.sounds.setCurrentIndex(0)
 
-    # scare method
-    def scare(self: Self) -> None:
-        """Starts seagull scaring."""
+    def start_scaring(self: Self) -> None:
+        """Runs the scaring loop outside the GUI thread."""
+        if self.scare_thread is not None:
+            return
 
-        # set timer and default values
-        timer: int = int(self.timer_entry.text())
-        seagulls_scared: int = 0
-        logs: list[str] = []
+        try:
+            timer: int = int(self.timer_entry.text())
+            min_time: int = int(self.min_time_entry.text())
+            max_time: int = int(self.max_time_entry.text())
+        except ValueError:
+            return
 
-        # start seagull scaring loop
-        while timer > 0:
+        self.log_window = LogWindow()
+        self.log_window.show()
+        self.scare_button.setEnabled(False)
 
-            # Play the seagull sound, write a log and wait random number of seconds
-            pause: int = randint(
-                a=int(self.min_time_entry.text()), b=int(self.max_time_entry.text())
-            )
-            sound_name: str = self.sounds.currentText().replace(" ", "_")
-            playsound(rf"media\{sound_name!s}.wav")
+        thread: QThread = QThread(self)
+        worker: ScareWorker = ScareWorker(
+            timer=timer,
+            min_time=min_time,
+            max_time=max_time,
+            sound_name=self.sounds.currentText().replace(" ", "_"),
+        )
+        worker.moveToThread(thread)
+        thread.started.connect(worker.run)
+        worker.log_received.connect(self.log_window.add_log)
+        worker.failed.connect(self._scare_failed)
+        worker.finished.connect(thread.quit)
+        worker.finished.connect(worker.deleteLater)
+        thread.finished.connect(self._scare_finished)
+        thread.finished.connect(thread.deleteLater)
 
-            current_time: datetime = datetime.now()
-            log: str = f"A seagull was scared on {current_time:%d.%m.%Y %H:%M:%S}\n"
-            print(log.strip("\n"))
-            logs.append(log)
-
-            # increment the number of seagulls scared and wait
-            seagulls_scared += 1
-            sleep(pause)
-            timer -= pause
-
-        # write log to file
-        with open(file=r"ssv2_log.txt", mode="a", encoding="utf-8") as file:
-            file.writelines(logs)
-
-        print("Done! Log written to ssv2_log.txt")
-
-    def scare_thread(self: Self) -> None:
-        """Starts seagull scaring thread to prevent the main window from freezing."""
-
-        thread: Thread = Thread(target=self.scare)
+        self.scare_thread = thread
+        self.scare_worker = worker
         thread.start()
+
+    def _scare_failed(self: Self, message: str) -> None:
+        print(f"Scaring failed: {message}")
+
+    def _scare_finished(self: Self) -> None:
+        self.scare_button.setEnabled(True)
+        self.scare_thread = None
+        self.scare_worker = None
 
     def set_volume(self: Self) -> None:
         """Changes volume according to slider."""
