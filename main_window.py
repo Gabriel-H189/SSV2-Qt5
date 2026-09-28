@@ -115,6 +115,8 @@ class MainWindow(QMainWindow, Ui_Form):
         """Displays the about window."""
 
         aw: AboutWindow = AboutWindow()
+        aw.show()
+
         aw.exec_()
 
 
