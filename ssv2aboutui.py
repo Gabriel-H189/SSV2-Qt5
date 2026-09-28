@@ -39,6 +39,9 @@ class Ui_Dialog(object):
         self.gull_label = QtWidgets.QLabel(Dialog)
         self.gull_label.setGeometry(QtCore.QRect(120, 180, 91, 20))
         self.gull_label.setObjectName("gull_label")
+        self.version_label = QtWidgets.QLabel(Dialog)
+        self.version_label.setGeometry(QtCore.QRect(110, 70, 131, 16))
+        self.version_label.setObjectName("version_label")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -52,6 +55,7 @@ class Ui_Dialog(object):
         self.gh_button.setText(_translate("Dialog", "go to Gabriel\'s github"))
         self.extract_button.setText(_translate("Dialog", "extract gull effects"))
         self.gull_label.setText(_translate("Dialog", "got gull effects?"))
+        self.version_label.setText(_translate("Dialog", "Version 2.1.3"))
 
 
 if __name__ == "__main__":
