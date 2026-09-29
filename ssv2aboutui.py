@@ -55,7 +55,7 @@ class Ui_Dialog(object):
         self.gh_button.setText(_translate("Dialog", "go to Gabriel\'s github"))
         self.extract_button.setText(_translate("Dialog", "extract gull effects"))
         self.gull_label.setText(_translate("Dialog", "got gull effects?"))
-        self.version_label.setText(_translate("Dialog", "Version 2.1.3"))
+        self.version_label.setText(_translate("Dialog", "Version 2.2"))
 
 
 if __name__ == "__main__":

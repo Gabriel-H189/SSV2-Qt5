@@ -51,7 +51,7 @@ Section "Main program"
 	SetOutPath $INSTDIR
 
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SSV2-Qt5" "DisplayName" "Seagull Scaring V2 (Qt Edition)"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SSV2-Qt5" "DisplayVersion" "2.1.2"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SSV2-Qt5" "DisplayVersion" "2.2"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SSV2-Qt5" "Publisher" "Gabriel Alonso-Holt"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SSV2-Qt5" "DisplayIcon" "$INSTDIR\seagull.ico"
 	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SSV2-Qt5" "NoModify" 1
