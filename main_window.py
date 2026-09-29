@@ -97,6 +97,7 @@ class MainWindow(QMainWindow, Ui_Form):
         self.scare_thread: QThread | None = None
         self.scare_worker: ScareWorker | None = None
         self.log_window: LogWindow | None = None
+        self.announce_window: AnnounceWindow | None = None
 
         # Add all seagull sound effects to the drop down list
         for item in seagull_values:
@@ -170,6 +171,7 @@ class MainWindow(QMainWindow, Ui_Form):
 
     def send_a(self: Self) -> None:
         anw: AnnounceWindow = AnnounceWindow()
+        self.announce_window = anw
         anw.show()
 
         def _send_a():
