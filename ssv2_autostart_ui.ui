@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>240</width>
+    <height>309</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Autostart</string>
+  </property>
+  <widget class="QTextEdit" name="countdown">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>241</width>
+     <height>271</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="abort_button">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>267</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Abort the automatic seagull scaring.</string>
+   </property>
+   <property name="text">
+    <string>abort seagull scaring</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
