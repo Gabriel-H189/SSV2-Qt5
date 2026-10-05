@@ -41,7 +41,7 @@ class AutostartWindow(QDialog, Ui_Dialog):
         self.countdown_worker: CountdownWorker | None = None
         self.abort_button.clicked.connect(self.abort)
 
-    def count_down(self, timer: int) -> None:
+    def count_down(self: Self, timer: int) -> None:
         self.countdown.insertPlainText("Autostart in...\n")
         thread: QThread = QThread(self)
         worker: CountdownWorker = CountdownWorker(timer)

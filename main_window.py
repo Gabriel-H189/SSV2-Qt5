@@ -121,8 +121,9 @@ class MainWindow(QMainWindow, Ui_Form):
             timer: int = int(self.timer_entry.text())
             min_time: int = int(self.min_time_entry.text())
             max_time: int = int(self.max_time_entry.text())
-        except ValueError:
-            return
+
+        except ValueError as exc:
+            print(f"Error: {exc}")
 
         self.log_window = LogWindow()
         self.log_window.show()

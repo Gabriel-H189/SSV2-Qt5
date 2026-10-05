@@ -3,11 +3,12 @@
 
 # imports
 from sys import argv, exit as sys_exit
-from typing import Self
+from typing import Any, Self
 from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
+from pyttsx3 import init, Engine  # type: ignore
 
 from ssv2announcementui import Ui_Dialog
 
@@ -23,9 +24,7 @@ class AnnouncementWorker(QObject):
     @pyqtSlot()
     def run(self: Self) -> None:
         try:
-            from pyttsx3 import init  # type: ignore
-
-            engine = init()
+            engine: Any | Engine = init()
             engine.setProperty("rate", 150)
 
             for _ in range(2):
@@ -38,8 +37,10 @@ class AnnouncementWorker(QObject):
 
             for _ in range(2):
                 playsound(r"media\alarm_seagull.wav")
+
         except Exception as error:
             self.failed.emit(str(error))
+
         finally:
             self.finished.emit()
 
