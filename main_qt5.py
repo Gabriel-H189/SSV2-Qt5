@@ -9,8 +9,7 @@ from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtGui import QIcon
 
 from main_window import MainWindow
-from autostart_window import AutostartWindow
-
+lazy from autostart_window import AutostartWindow
 
 def main() -> None:
     """This function starts the program."""

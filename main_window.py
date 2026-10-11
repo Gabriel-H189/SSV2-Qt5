@@ -3,23 +3,22 @@
 
 # imports
 from configparser import ConfigParser
-from random import randint
-from sys import argv
-from sys import exit as sys_exit
-from time import sleep
-from datetime import datetime
+lazy from random import randint
+from sys import argv, exit as sys_exit
+lazy from time import sleep
+lazy from datetime import datetime
 from typing import Self
 
-from playsound import playsound  # type: ignore
+lazy from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
-from pyvolume import custom  # type: ignore
+lazy from pyvolume import custom  # type: ignore
 
-from ssv2newgui1 import Ui_Form
-from about_window import AboutWindow
-from log_window import LogWindow
-from announcement_ui import AnnounceWindow
+lazy from ssv2newgui1 import Ui_Form
+lazy from about_window import AboutWindow
+lazy from log_window import LogWindow
+lazy from announcement_ui import AnnounceWindow
 
 # Load config file
 parser: ConfigParser = ConfigParser()
