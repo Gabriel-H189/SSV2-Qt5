@@ -15,6 +15,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(240, 309)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(".\\seagull.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.countdown = QtWidgets.QTextEdit(Dialog)
         self.countdown.setGeometry(QtCore.QRect(0, 0, 241, 271))
         self.countdown.setObjectName("countdown")

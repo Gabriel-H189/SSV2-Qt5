@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from sys import argv, exit as sys_exit
-from time import sleep
+lazy from time import sleep
 from typing import Self
 
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
-from PyQt5.QtGui import QIcon, QTextCursor
+from PyQt5.QtGui import QTextCursor
 from PyQt5.QtWidgets import QDialog, QApplication
+
 from ssv2autostartui import Ui_Dialog
 
 
@@ -24,6 +25,7 @@ class CountdownWorker(QObject):
         for remaining in range(self.timer, 0, -1):
             self.tick.emit(remaining)
             sleep(1)
+
         self.finished.emit()
 
 
@@ -33,12 +35,13 @@ class AutostartWindow(QDialog, Ui_Dialog):
     def __init__(self: Self) -> None:
         QDialog.__init__(self)
         self.setupUi(self)
-        self.setWindowTitle("Autostart")
-        self.setWindowIcon(QIcon(r"seagull.ico"))
+        
         self.text_cursor = QTextCursor(self.countdown.document())
         self.countdown.setTextCursor(self.text_cursor)
+        
         self.countdown_thread: QThread | None = None
         self.countdown_worker: CountdownWorker | None = None
+
         self.abort_button.clicked.connect(self.abort)
 
     def count_down(self: Self, timer: int) -> None:
@@ -56,6 +59,7 @@ class AutostartWindow(QDialog, Ui_Dialog):
 
         self.countdown_thread = thread
         self.countdown_worker = worker
+        
         thread.start()
 
     def _show_countdown_tick(self, remaining: int) -> None:
@@ -71,6 +75,7 @@ class AutostartWindow(QDialog, Ui_Dialog):
             self.countdown_thread.wait()
             self.countdown_thread = None
             self.countdown_worker = None
+            
         self.close()
         exit(0)
 

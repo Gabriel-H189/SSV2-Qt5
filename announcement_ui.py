@@ -4,11 +4,10 @@
 # imports
 from sys import argv, exit as sys_exit
 from typing import Any, Self
-from playsound import playsound  # type: ignore
+lazy from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QApplication, QDialog
-from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
-from pyttsx3 import init, Engine  # type: ignore
+lazy from pyttsx3 import init, Engine  # type: ignore
 
 from ssv2announcementui import Ui_Dialog
 
@@ -47,10 +46,11 @@ class AnnouncementWorker(QObject):
 
 class AnnounceWindow(QDialog, Ui_Dialog):
     def __init__(self: Self) -> None:
+
+        # setup the window
         QDialog.__init__(self)
         self.setupUi(self)
-        self.setWindowTitle("Send announcement")
-        self.setWindowIcon(QIcon(r"seagull.ico"))
+        
         self.announcement_thread: QThread | None = None
         self.announcement_worker: AnnouncementWorker | None = None
 

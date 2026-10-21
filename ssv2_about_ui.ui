@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>About</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>seagull.ico</normaloff>seagull.ico</iconset>
   </property>
   <widget class="QLabel" name="title_label">
    <property name="geometry">

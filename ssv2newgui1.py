@@ -15,6 +15,9 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(400, 350)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(".\\seagull.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Form.setWindowIcon(icon)
         self.title = QtWidgets.QLabel(Form)
         self.title.setGeometry(QtCore.QRect(150, 40, 141, 31))
         font = QtGui.QFont()
@@ -76,7 +79,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Seagull Scaring V2"))
         self.title.setText(_translate("Form", "Seagull Scaring"))
         self.timer_entry.setToolTip(_translate("Form", "Time to run the program for. Recommended: 2700 seconds."))
         self.timer_label.setText(_translate("Form", "Timer in seconds:"))

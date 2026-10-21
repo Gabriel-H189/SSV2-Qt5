@@ -15,6 +15,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(308, 259)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(".\\seagull.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.title_label = QtWidgets.QLabel(Dialog)
         self.title_label.setGeometry(QtCore.QRect(70, 0, 191, 61))
         font = QtGui.QFont()
@@ -48,7 +51,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "About"))
         self.title_label.setText(_translate("Dialog", "Seagull Scaring V2"))
         self.author_label.setText(_translate("Dialog", "By Gabriel Alonso-Holt"))
         self.gh_label.setText(_translate("Dialog", "updates? issues?"))

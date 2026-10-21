@@ -88,11 +88,11 @@ class MainWindow(QMainWindow, Ui_Form):
         # setup the window
         QMainWindow.__init__(self)
         self.setupUi(self)
-        self.setWindowTitle("Seagull Scaring V2")
-        self.setWindowIcon(QIcon(r"seagull.ico"))
+        
         self.scare_button.clicked.connect(self.start_scaring)
         self.about_button.clicked.connect(self.about_window)
         self.announce_btn.clicked.connect(self.send_a)
+        
         self.scare_thread: QThread | None = None
         self.scare_worker: ScareWorker | None = None
         self.log_window: LogWindow | None = None
@@ -146,6 +146,7 @@ class MainWindow(QMainWindow, Ui_Form):
 
         self.scare_thread = thread
         self.scare_worker = worker
+        
         thread.start()
 
     def _scare_failed(self: Self, message: str) -> None:

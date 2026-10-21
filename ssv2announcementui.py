@@ -15,6 +15,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(482, 262)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(".\\seagull.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.buttons = QtWidgets.QDialogButtonBox(Dialog)
         self.buttons.setGeometry(QtCore.QRect(10, 220, 461, 32))
         self.buttons.setOrientation(QtCore.Qt.Horizontal)

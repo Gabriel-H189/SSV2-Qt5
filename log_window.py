@@ -6,8 +6,7 @@ from sys import argv, exit as sys_exit
 from typing import Self
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import QSize
+
 from ssv2logui import Ui_Dialog
 
 
@@ -18,9 +17,6 @@ class LogWindow(QMainWindow, Ui_Dialog):
         # setup the window
         QMainWindow.__init__(self)
         self.setupUi(self)
-        self.setWindowTitle("seagull log")
-        self.setWindowIcon(QIcon(r"seagull.ico"))
-        self.setMinimumSize(QSize(306, 301))
 
     # add a log to the list
     def add_log(self: Self, log_str: str) -> None:
