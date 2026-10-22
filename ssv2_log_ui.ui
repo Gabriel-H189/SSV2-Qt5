@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>frm_log</class>
+ <widget class="QDialog" name="frm_log">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,7 +23,7 @@
    <iconset>
     <normaloff>seagull.ico</normaloff>seagull.ico</iconset>
   </property>
-  <widget class="QTextEdit" name="seagull_log">
+  <widget class="QTextEdit" name="txt_seagull_log">
    <property name="geometry">
     <rect>
      <x>0</x>

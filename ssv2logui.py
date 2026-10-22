@@ -11,36 +11,36 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(306, 301)
-        Dialog.setMinimumSize(QtCore.QSize(306, 301))
+class Ui_frm_log(object):
+    def setupUi(self, frm_log):
+        frm_log.setObjectName("frm_log")
+        frm_log.resize(306, 301)
+        frm_log.setMinimumSize(QtCore.QSize(306, 301))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(".\\seagull.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        Dialog.setWindowIcon(icon)
-        self.seagull_log = QtWidgets.QTextEdit(Dialog)
-        self.seagull_log.setGeometry(QtCore.QRect(0, 0, 291, 301))
-        self.seagull_log.setObjectName("seagull_log")
-        self.scroll_bar = QtWidgets.QScrollBar(Dialog)
+        frm_log.setWindowIcon(icon)
+        self.txt_seagull_log = QtWidgets.QTextEdit(frm_log)
+        self.txt_seagull_log.setGeometry(QtCore.QRect(0, 0, 291, 301))
+        self.txt_seagull_log.setObjectName("txt_seagull_log")
+        self.scroll_bar = QtWidgets.QScrollBar(frm_log)
         self.scroll_bar.setGeometry(QtCore.QRect(290, 0, 16, 291))
         self.scroll_bar.setOrientation(QtCore.Qt.Vertical)
         self.scroll_bar.setObjectName("scroll_bar")
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(frm_log)
+        QtCore.QMetaObject.connectSlotsByName(frm_log)
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, frm_log):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "seagull log"))
-        self.scroll_bar.setToolTip(_translate("Dialog", "Scroll through the seagull log."))
+        frm_log.setWindowTitle(_translate("frm_log", "seagull log"))
+        self.scroll_bar.setToolTip(_translate("frm_log", "Scroll through the seagull log."))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    frm_log = QtWidgets.QDialog()
+    ui = Ui_frm_log()
+    ui.setupUi(frm_log)
+    frm_log.show()
     sys.exit(app.exec_())

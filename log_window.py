@@ -7,11 +7,11 @@ from typing import Self
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from ssv2logui import Ui_Dialog
+from ssv2logui import Ui_frm_log
 
 
 # log window class containing logic
-class LogWindow(QMainWindow, Ui_Dialog):
+class LogWindow(QMainWindow, Ui_frm_log):
     def __init__(self: Self) -> None:
 
         # setup the window
@@ -20,7 +20,7 @@ class LogWindow(QMainWindow, Ui_Dialog):
 
     # add a log to the list
     def add_log(self: Self, log_str: str) -> None:
-        self.seagull_log.append(log_str)
+        self.txt_seagull_log.append(log_str)
 
 
 def main() -> None:

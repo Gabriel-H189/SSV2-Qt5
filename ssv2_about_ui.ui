@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>frm_about</class>
+ <widget class="QDialog" name="frm_about">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,7 @@
    <iconset>
     <normaloff>seagull.ico</normaloff>seagull.ico</iconset>
   </property>
-  <widget class="QLabel" name="title_label">
+  <widget class="QLabel" name="lbl_title">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -38,7 +38,7 @@
     <string>Seagull Scaring V2</string>
    </property>
   </widget>
-  <widget class="QLabel" name="author_label">
+  <widget class="QLabel" name="lbl_author">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -51,7 +51,7 @@
     <string>By Gabriel Alonso-Holt</string>
    </property>
   </widget>
-  <widget class="QLabel" name="gh_label">
+  <widget class="QLabel" name="lbl_gh">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -64,7 +64,7 @@
     <string>updates? issues?</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="gh_button">
+  <widget class="QPushButton" name="btn_gh">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -77,7 +77,7 @@
     <string>go to Gabriel's github</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="extract_button">
+  <widget class="QPushButton" name="btn_extract">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -90,7 +90,7 @@
     <string>extract gull effects</string>
    </property>
   </widget>
-  <widget class="QLabel" name="gull_label">
+  <widget class="QLabel" name="lbl_gull">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -103,7 +103,7 @@
     <string>got gull effects?</string>
    </property>
   </widget>
-  <widget class="QLabel" name="version_label">
+  <widget class="QLabel" name="lbl_version">
    <property name="geometry">
     <rect>
      <x>110</x>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>frm_announce</class>
+ <widget class="QDialog" name="frm_announce">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -20,7 +20,7 @@
   <property name="toolTip">
    <string>Send a Seagull Wars public service announcement.</string>
   </property>
-  <widget class="QDialogButtonBox" name="buttons">
+  <widget class="QDialogButtonBox" name="btns">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -36,7 +36,7 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QTextEdit" name="message">
+  <widget class="QTextEdit" name="txt_message">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -46,7 +46,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="lbl">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -63,9 +63,9 @@
  <resources/>
  <connections>
   <connection>
-   <sender>buttons</sender>
+   <sender>btns</sender>
    <signal>accepted()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>frm_announce</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -79,9 +79,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>buttons</sender>
+   <sender>btns</sender>
    <signal>rejected()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>frm_announce</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

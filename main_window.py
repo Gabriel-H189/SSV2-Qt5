@@ -11,11 +11,10 @@ from typing import Self
 
 lazy from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
 lazy from pyvolume import custom  # type: ignore
 
-lazy from ssv2newgui1 import Ui_Form
+lazy from ssv2newgui1 import Ui_frm_main
 lazy from about_window import AboutWindow
 lazy from log_window import LogWindow
 lazy from announcement_ui import AnnounceWindow
@@ -80,7 +79,7 @@ class ScareWorker(QObject):
 
 
 # main window class containing logic
-class MainWindow(QMainWindow, Ui_Form):
+class MainWindow(QMainWindow, Ui_frm_main):
 
     # init method
     def __init__(self: Self) -> None:
@@ -89,9 +88,9 @@ class MainWindow(QMainWindow, Ui_Form):
         QMainWindow.__init__(self)
         self.setupUi(self)
         
-        self.scare_button.clicked.connect(self.start_scaring)
-        self.about_button.clicked.connect(self.about_window)
-        self.announce_btn.clicked.connect(self.send_a)
+        self.btn_scare.clicked.connect(self.start_scaring)
+        self.btn_about.clicked.connect(self.about_window)
+        self.btn_announce.clicked.connect(self.send_a)
         
         self.scare_thread: QThread | None = None
         self.scare_worker: ScareWorker | None = None
@@ -103,9 +102,9 @@ class MainWindow(QMainWindow, Ui_Form):
             self.sounds.addItem(item)
 
         # Set default config file values
-        self.timer_entry.setText(parser[config[0]]["scaring_time"])
-        self.min_time_entry.setText(parser[config[0]]["min_time"])
-        self.max_time_entry.setText(parser[config[0]]["max_time"])
+        self.txt_time.setText(parser[config[0]]["scaring_time"])
+        self.txt_min_time.setText(parser[config[0]]["min_time"])
+        self.txt_max_time.setText(parser[config[0]]["max_time"])
         self.volume_slider.setValue(int(parser[config[0]]["default_volume"]))
         self.volume_slider.valueChanged.connect(self.set_volume)
 
@@ -117,16 +116,16 @@ class MainWindow(QMainWindow, Ui_Form):
             return
 
         try:
-            timer: int = int(self.timer_entry.text())
-            min_time: int = int(self.min_time_entry.text())
-            max_time: int = int(self.max_time_entry.text())
+            timer: int = int(self.txt_time.text())
+            min_time: int = int(self.txt_min_time.text())
+            max_time: int = int(self.txt_max_time.text())
 
         except ValueError as exc:
             print(f"Error: {exc}")
 
         self.log_window = LogWindow()
         self.log_window.show()
-        self.scare_button.setEnabled(False)
+        self.btn_scare.setEnabled(False)
 
         thread: QThread = QThread(self)
         worker: ScareWorker = ScareWorker(
@@ -135,12 +134,16 @@ class MainWindow(QMainWindow, Ui_Form):
             max_time=max_time,
             sound_name=self.sounds.currentText().replace(" ", "_"),
         )
+
         worker.moveToThread(thread)
         thread.started.connect(worker.run)
+        
         worker.log_received.connect(self.log_window.add_log)
         worker.failed.connect(self._scare_failed)
+        
         worker.finished.connect(thread.quit)
         worker.finished.connect(worker.deleteLater)
+        
         thread.finished.connect(self._scare_finished)
         thread.finished.connect(thread.deleteLater)
 
@@ -153,7 +156,7 @@ class MainWindow(QMainWindow, Ui_Form):
         print(f"Scaring failed: {message}")
 
     def _scare_finished(self: Self) -> None:
-        self.scare_button.setEnabled(True)
+        self.btn_scare.setEnabled(True)
         self.scare_thread = None
         self.scare_worker = None
 

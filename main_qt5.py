@@ -11,6 +11,7 @@ from PyQt5.QtGui import QIcon
 from main_window import MainWindow
 lazy from autostart_window import AutostartWindow
 
+
 def main() -> None:
     """This function starts the program."""
 
@@ -33,18 +34,21 @@ def main() -> None:
 
         retval: int = eos.exec_()
 
+    # Show the main window and start seagull scaring
     def start_main_window() -> None:
         nonlocal window
         window = MainWindow()
         window.show()
         window.start_scaring()
 
+    # Show the autostart window
     if parser[config[0]]["autostart"] == "True":
         a_window: AutostartWindow = AutostartWindow()
         a_window.show()
         a_window.countdown_finished.connect(start_main_window)
         a_window.count_down(int(parser[config[0]]["autostart_delay"]))
 
+    # Show the main window
     else:
         window = MainWindow()
         window.show()
@@ -52,5 +56,6 @@ def main() -> None:
     sys_exit(app.exec_())
 
 
+# Only start the GUI if ran directly
 if __name__ == "__main__":
     main()

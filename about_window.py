@@ -9,19 +9,19 @@ from zipfile import ZipFile
 
 from PyQt5.QtWidgets import QApplication, QDialog
 
-from ssv2aboutui import Ui_Dialog
+from ssv2aboutui import Ui_frm_about
 
 
 # about window class containing logic
-class AboutWindow(QDialog, Ui_Dialog):
+class AboutWindow(QDialog, Ui_frm_about):
     def __init__(self: Self) -> None:
 
         # setup the window
         QDialog.__init__(self)
         self.setupUi(self)
 
-        self.gh_button.clicked.connect(self.github)
-        self.extract_button.clicked.connect(self.extract_gull_effects)
+        self.btn_gh.clicked.connect(self.github)
+        self.btn_extract.clicked.connect(self.extract_gull_effects)
 
     # Opens the online project page
     def github(self: Self) -> None:

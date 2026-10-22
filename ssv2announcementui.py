@@ -11,42 +11,42 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(482, 262)
+class Ui_frm_announce(object):
+    def setupUi(self, frm_announce):
+        frm_announce.setObjectName("frm_announce")
+        frm_announce.resize(482, 262)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(".\\seagull.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        Dialog.setWindowIcon(icon)
-        self.buttons = QtWidgets.QDialogButtonBox(Dialog)
-        self.buttons.setGeometry(QtCore.QRect(10, 220, 461, 32))
-        self.buttons.setOrientation(QtCore.Qt.Horizontal)
-        self.buttons.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
-        self.buttons.setObjectName("buttons")
-        self.message = QtWidgets.QTextEdit(Dialog)
-        self.message.setGeometry(QtCore.QRect(10, 30, 461, 181))
-        self.message.setObjectName("message")
-        self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(10, 10, 461, 16))
-        self.label.setObjectName("label")
+        frm_announce.setWindowIcon(icon)
+        self.btns = QtWidgets.QDialogButtonBox(frm_announce)
+        self.btns.setGeometry(QtCore.QRect(10, 220, 461, 32))
+        self.btns.setOrientation(QtCore.Qt.Horizontal)
+        self.btns.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.btns.setObjectName("btns")
+        self.txt_message = QtWidgets.QTextEdit(frm_announce)
+        self.txt_message.setGeometry(QtCore.QRect(10, 30, 461, 181))
+        self.txt_message.setObjectName("txt_message")
+        self.lbl = QtWidgets.QLabel(frm_announce)
+        self.lbl.setGeometry(QtCore.QRect(10, 10, 461, 16))
+        self.lbl.setObjectName("lbl")
 
-        self.retranslateUi(Dialog)
-        self.buttons.accepted.connect(Dialog.accept) # type: ignore
-        self.buttons.rejected.connect(Dialog.reject) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(frm_announce)
+        self.btns.accepted.connect(frm_announce.accept) # type: ignore
+        self.btns.rejected.connect(frm_announce.reject) # type: ignore
+        QtCore.QMetaObject.connectSlotsByName(frm_announce)
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, frm_announce):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Send announcement"))
-        Dialog.setToolTip(_translate("Dialog", "Send a Seagull Wars public service announcement."))
-        self.label.setText(_translate("Dialog", "Send a Seagull Wars public service announcement. Type your message below:"))
+        frm_announce.setWindowTitle(_translate("frm_announce", "Send announcement"))
+        frm_announce.setToolTip(_translate("frm_announce", "Send a Seagull Wars public service announcement."))
+        self.lbl.setText(_translate("frm_announce", "Send a Seagull Wars public service announcement. Type your message below:"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    frm_announce = QtWidgets.QDialog()
+    ui = Ui_frm_announce()
+    ui.setupUi(frm_announce)
+    frm_announce.show()
     sys.exit(app.exec_())

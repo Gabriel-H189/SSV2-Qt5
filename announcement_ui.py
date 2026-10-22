@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
 lazy from pyttsx3 import init, Engine  # type: ignore
 
-from ssv2announcementui import Ui_Dialog
+from ssv2announcementui import Ui_frm_announce
 
 
 class AnnouncementWorker(QObject):
@@ -44,7 +44,7 @@ class AnnouncementWorker(QObject):
             self.finished.emit()
 
 
-class AnnounceWindow(QDialog, Ui_Dialog):
+class AnnounceWindow(QDialog, Ui_frm_announce):
     def __init__(self: Self) -> None:
 
         # setup the window

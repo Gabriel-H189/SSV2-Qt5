@@ -9,7 +9,7 @@ from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import QTextCursor
 from PyQt5.QtWidgets import QDialog, QApplication
 
-from ssv2autostartui import Ui_Dialog
+from ssv2autostartui import Ui_frm_autostart
 
 
 class CountdownWorker(QObject):
@@ -29,31 +29,35 @@ class CountdownWorker(QObject):
         self.finished.emit()
 
 
-class AutostartWindow(QDialog, Ui_Dialog):
+class AutostartWindow(QDialog, Ui_frm_autostart):
     countdown_finished = pyqtSignal()
 
     def __init__(self: Self) -> None:
         QDialog.__init__(self)
         self.setupUi(self)
         
-        self.text_cursor = QTextCursor(self.countdown.document())
-        self.countdown.setTextCursor(self.text_cursor)
+        self.text_cursor = QTextCursor(self.txt_countdown.document())
+        self.txt_countdown.setTextCursor(self.text_cursor)
         
         self.countdown_thread: QThread | None = None
         self.countdown_worker: CountdownWorker | None = None
 
-        self.abort_button.clicked.connect(self.abort)
+        self.btn_abort.clicked.connect(self.abort)
 
     def count_down(self: Self, timer: int) -> None:
-        self.countdown.insertPlainText("Autostart in...\n")
+        self.txt_countdown.insertPlainText("Autostart in...\n")
         thread: QThread = QThread(self)
+        
         worker: CountdownWorker = CountdownWorker(timer)
         worker.moveToThread(thread)
+        
         thread.started.connect(worker.run)
         worker.tick.connect(self._show_countdown_tick)
+
         worker.finished.connect(self.countdown_finished)
         worker.finished.connect(thread.quit)
         worker.finished.connect(worker.deleteLater)
+        
         thread.finished.connect(self._countdown_thread_finished)
         thread.finished.connect(thread.deleteLater)
 
@@ -63,7 +67,7 @@ class AutostartWindow(QDialog, Ui_Dialog):
         thread.start()
 
     def _show_countdown_tick(self, remaining: int) -> None:
-        self.countdown.insertPlainText(f"{remaining}\n")
+        self.txt_countdown.insertPlainText(f"{remaining}\n")
 
     def _countdown_thread_finished(self) -> None:
         self.countdown_thread = None
@@ -73,6 +77,7 @@ class AutostartWindow(QDialog, Ui_Dialog):
         if self.countdown_thread is not None and self.countdown_worker is not None:
             self.countdown_thread.quit()
             self.countdown_thread.wait()
+            
             self.countdown_thread = None
             self.countdown_worker = None
             

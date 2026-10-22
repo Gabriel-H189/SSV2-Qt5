@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>frm_autostart</class>
+ <widget class="QDialog" name="frm_autostart">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,7 @@
    <iconset>
     <normaloff>seagull.ico</normaloff>seagull.ico</iconset>
   </property>
-  <widget class="QTextEdit" name="countdown">
+  <widget class="QTextEdit" name="txt_countdown">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -27,7 +27,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="abort_button">
+  <widget class="QPushButton" name="btn_abort">
    <property name="geometry">
     <rect>
      <x>0</x>

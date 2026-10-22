@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>frm_main</class>
+ <widget class="QMainWindow" name="frm_main">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,230 +17,232 @@
    <iconset>
     <normaloff>seagull.ico</normaloff>seagull.ico</iconset>
   </property>
-  <widget class="QLabel" name="title">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>40</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Arial</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Seagull Scaring</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="timer_entry">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>100</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>Time to run the program for. Recommended: 2700 seconds.</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="timer_label">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>80</y>
-     <width>111</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Timer in seconds:</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="sounds">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>100</y>
-     <width>121</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>A list of all the seagull sounds.</string>
-   </property>
-   <property name="currentText">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="select_sound_label">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>80</y>
-     <width>111</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Select your sound:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="min_time_entry">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>150</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>Enter the minimum time to wait.</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="max_time_entry">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>Enter the maximum time to wait.</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="min_time_label">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>130</y>
-     <width>91</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Minimum time:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="max_time_label">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>180</y>
-     <width>101</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Maximum time:</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="scare_button">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>260</y>
-     <width>131</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>Start scaring the seagulls.</string>
-   </property>
-   <property name="text">
-    <string>scare the gulls</string>
-   </property>
-  </widget>
-  <widget class="QSlider" name="volume_slider">
-   <property name="geometry">
-    <rect>
-     <x>330</x>
-     <y>110</y>
-     <width>22</width>
-     <height>160</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>Change the volume of the seagull sound.</string>
-   </property>
-   <property name="minimum">
-    <number>1</number>
-   </property>
-   <property name="maximum">
-    <number>100</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="volume_label">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>80</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Volume</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="about_button">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>300</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>View information about the program.</string>
-   </property>
-   <property name="text">
-    <string>about</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="gull_image">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>0</y>
-     <width>41</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>seagull.png</pixmap>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="announce_btn">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>300</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>Start scaring the seagulls.</string>
-   </property>
-   <property name="text">
-    <string>send announcement</string>
-   </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="txt_max_time">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Enter the maximum time to wait.</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_min_time">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Minimum time:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="img_gull">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>0</y>
+      <width>41</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>seagull.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_about">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>300</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>View information about the program.</string>
+    </property>
+    <property name="text">
+     <string>about</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="sounds">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>100</y>
+      <width>121</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>A list of all the seagull sounds.</string>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_title">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>40</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Seagull Scaring</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_sound">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>80</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select your sound:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_scare">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>260</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Start scaring the seagulls.</string>
+    </property>
+    <property name="text">
+     <string>scare the gulls</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_volume">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>80</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Volume</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="volume_slider">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>110</y>
+      <width>22</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Change the volume of the seagull sound.</string>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_timer">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Timer in seconds:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_time">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Time to run the program for. Recommended: 2700 seconds.</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_max_time">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>180</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Maximum time:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_min_time">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>150</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Enter the minimum time to wait.</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_announce">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>300</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Start scaring the seagulls.</string>
+    </property>
+    <property name="text">
+     <string>send announcement</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

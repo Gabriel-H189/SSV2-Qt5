@@ -11,35 +11,35 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(240, 309)
+class Ui_frm_autostart(object):
+    def setupUi(self, frm_autostart):
+        frm_autostart.setObjectName("frm_autostart")
+        frm_autostart.resize(240, 309)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(".\\seagull.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        Dialog.setWindowIcon(icon)
-        self.countdown = QtWidgets.QTextEdit(Dialog)
-        self.countdown.setGeometry(QtCore.QRect(0, 0, 241, 271))
-        self.countdown.setObjectName("countdown")
-        self.abort_button = QtWidgets.QPushButton(Dialog)
-        self.abort_button.setGeometry(QtCore.QRect(0, 267, 241, 41))
-        self.abort_button.setObjectName("abort_button")
+        frm_autostart.setWindowIcon(icon)
+        self.txt_countdown = QtWidgets.QTextEdit(frm_autostart)
+        self.txt_countdown.setGeometry(QtCore.QRect(0, 0, 241, 271))
+        self.txt_countdown.setObjectName("txt_countdown")
+        self.btn_abort = QtWidgets.QPushButton(frm_autostart)
+        self.btn_abort.setGeometry(QtCore.QRect(0, 267, 241, 41))
+        self.btn_abort.setObjectName("btn_abort")
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(frm_autostart)
+        QtCore.QMetaObject.connectSlotsByName(frm_autostart)
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, frm_autostart):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Autostart"))
-        self.abort_button.setToolTip(_translate("Dialog", "Abort the automatic seagull scaring."))
-        self.abort_button.setText(_translate("Dialog", "abort seagull scaring"))
+        frm_autostart.setWindowTitle(_translate("frm_autostart", "Autostart"))
+        self.btn_abort.setToolTip(_translate("frm_autostart", "Abort the automatic seagull scaring."))
+        self.btn_abort.setText(_translate("frm_autostart", "abort seagull scaring"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    frm_autostart = QtWidgets.QDialog()
+    ui = Ui_frm_autostart()
+    ui.setupUi(frm_autostart)
+    frm_autostart.show()
     sys.exit(app.exec_())
