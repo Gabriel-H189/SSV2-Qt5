@@ -37,6 +37,7 @@ def main() -> None:
     # Show the main window and start seagull scaring
     def start_main_window() -> None:
         nonlocal window
+
         window = MainWindow()
         window.show()
         window.start_scaring()
@@ -45,6 +46,7 @@ def main() -> None:
     if parser[config[0]]["autostart"] == "True":
         a_window: AutostartWindow = AutostartWindow()
         a_window.show()
+        
         a_window.countdown_finished.connect(start_main_window)
         a_window.count_down(int(parser[config[0]]["autostart_delay"]))
 

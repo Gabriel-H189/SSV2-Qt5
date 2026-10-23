@@ -23,6 +23,7 @@ class LogWindow(QMainWindow, Ui_frm_log):
         self.txt_seagull_log.append(log_str)
 
 
+# Create an application and show the GUI
 def main() -> None:
     """This function starts the program."""
 
@@ -33,5 +34,6 @@ def main() -> None:
     sys_exit(app.exec_())
 
 
+# Only show GUI when ran directly
 if __name__ == "__main__":
     main()

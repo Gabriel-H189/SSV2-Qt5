@@ -58,6 +58,7 @@ class ScareWorker(QObject):
         timer: int = self.timer
 
         try:
+            # Play chosen seagull sound, log it and wait
             while timer > 0:
                 pause: int = randint(a=self.min_time, b=self.max_time)
                 playsound(rf"media\{self.sound_name}.wav")
@@ -72,8 +73,10 @@ class ScareWorker(QObject):
 
             with open(file=r"ssv2_log.txt", mode="a", encoding="utf-8") as file:
                 file.writelines(logs)
+
         except Exception as error:
             self.failed.emit(str(error))
+
         finally:
             self.finished.emit()
 

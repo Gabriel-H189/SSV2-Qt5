@@ -33,6 +33,7 @@ class AutostartWindow(QDialog, Ui_frm_autostart):
     countdown_finished = pyqtSignal()
 
     def __init__(self: Self) -> None:
+        # setup the window
         QDialog.__init__(self)
         self.setupUi(self)
         
@@ -44,6 +45,7 @@ class AutostartWindow(QDialog, Ui_frm_autostart):
 
         self.btn_abort.clicked.connect(self.abort)
 
+    # method that starts countdown thread
     def count_down(self: Self, timer: int) -> None:
         self.txt_countdown.insertPlainText("Autostart in...\n")
         thread: QThread = QThread(self)
@@ -66,14 +68,17 @@ class AutostartWindow(QDialog, Ui_frm_autostart):
         
         thread.start()
 
-    def _show_countdown_tick(self, remaining: int) -> None:
+    # updates countdown
+    def _show_countdown_tick(self: Self, remaining: int) -> None:
         self.txt_countdown.insertPlainText(f"{remaining}\n")
 
-    def _countdown_thread_finished(self) -> None:
+    def _countdown_thread_finished(self: Self) -> None:
         self.countdown_thread = None
         self.countdown_worker = None
 
+    # method that aborts countdown
     def abort(self: Self) -> None:
+
         if self.countdown_thread is not None and self.countdown_worker is not None:
             self.countdown_thread.quit()
             self.countdown_thread.wait()
@@ -85,6 +90,7 @@ class AutostartWindow(QDialog, Ui_frm_autostart):
         exit(0)
 
 
+# Create an application and show the autostart window
 def main() -> None:
     app: QApplication = QApplication(argv)
     auw: AutostartWindow = AutostartWindow()
@@ -93,5 +99,6 @@ def main() -> None:
     sys_exit(app.exec_())
 
 
+# Only show the GUI when ran directly
 if __name__ == "__main__":
     main()
