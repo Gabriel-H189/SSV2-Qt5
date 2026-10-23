@@ -20,6 +20,7 @@ class AboutWindow(QDialog, Ui_frm_about):
         QDialog.__init__(self)
         self.setupUi(self)
 
+        # connect the subroutines to buttons
         self.btn_gh.clicked.connect(self.github)
         self.btn_extract.clicked.connect(self.extract_gull_effects)
 
@@ -35,6 +36,7 @@ class AboutWindow(QDialog, Ui_frm_about):
             zipfile.extractall(r"media")
 
 
+# Create an application and show the GUI
 def main() -> None:
     """This function starts the program."""
 
@@ -45,5 +47,6 @@ def main() -> None:
     sys_exit(app.exec_())
 
 
+# Only show GUI when ran directly
 if __name__ == "__main__":
     main()

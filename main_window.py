@@ -9,6 +9,7 @@ lazy from time import sleep
 lazy from datetime import datetime
 from typing import Self
 
+from loguru import logger
 lazy from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
@@ -90,7 +91,8 @@ class MainWindow(QMainWindow, Ui_frm_main):
         # setup the window
         QMainWindow.__init__(self)
         self.setupUi(self)
-        
+
+        # connect methods to button clicks
         self.btn_scare.clicked.connect(self.start_scaring)
         self.btn_about.clicked.connect(self.about_window)
         self.btn_announce.clicked.connect(self.send_a)
@@ -124,7 +126,7 @@ class MainWindow(QMainWindow, Ui_frm_main):
             max_time: int = int(self.txt_max_time.text())
 
         except ValueError as exc:
-            print(f"Error: {exc}")
+            logger.error(f"Error: {exc}")
 
         self.log_window = LogWindow()
         self.log_window.show()
@@ -156,7 +158,7 @@ class MainWindow(QMainWindow, Ui_frm_main):
         thread.start()
 
     def _scare_failed(self: Self, message: str) -> None:
-        print(f"Scaring failed: {message}")
+        logger.error(f"Scaring failed: {message}")
 
     def _scare_finished(self: Self) -> None:
         self.btn_scare.setEnabled(True)

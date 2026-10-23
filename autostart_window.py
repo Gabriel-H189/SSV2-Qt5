@@ -36,13 +36,15 @@ class AutostartWindow(QDialog, Ui_frm_autostart):
         # setup the window
         QDialog.__init__(self)
         self.setupUi(self)
-        
+
+        # create the text cursor
         self.text_cursor = QTextCursor(self.txt_countdown.document())
         self.txt_countdown.setTextCursor(self.text_cursor)
         
         self.countdown_thread: QThread | None = None
         self.countdown_worker: CountdownWorker | None = None
 
+        # connect the subroutines to buttons
         self.btn_abort.clicked.connect(self.abort)
 
     # method that starts countdown thread

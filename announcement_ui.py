@@ -4,6 +4,7 @@
 # imports
 from sys import argv, exit as sys_exit
 from typing import Any, Self
+from loguru import logger
 lazy from playsound import playsound  # type: ignore
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
@@ -85,7 +86,7 @@ class AnnounceWindow(QDialog, Ui_frm_announce):
         thread.start()
 
     def _announcement_failed(self: Self, message: str) -> None:
-        print(f"Announcement failed: {message}")
+        logger.error(f"Announcement failed: {message}")
 
     def _announcement_finished(self: Self) -> None:
         self.buttons.setEnabled(True)
